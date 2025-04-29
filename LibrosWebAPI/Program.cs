@@ -1,4 +1,5 @@
 using BooksWebAPI.Services;
+using LibrosWebAPI.Interfaces;
 using MediatR;
 using System.Reflection;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<IBookService, BookService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 
 builder.Services.AddEndpointsApiExplorer();
